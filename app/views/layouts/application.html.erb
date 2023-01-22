@@ -13,6 +13,11 @@
 
   <body>
     <main class="container mx-auto mt-28 px-5">
+      <% if notice %>
+        <div class='p-4 bg-blue-100'>
+          <%= notice %>
+        </div>
+      <% end %>
       <%= yield %>
     </main>
   </body>

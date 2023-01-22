@@ -1,0 +1,13 @@
+= link_to '戻る', groups_path
+h1 新規作成
+= form_with model: @group do |f|
+  - if @group.errors.any?
+    #error_explanation.p-4.bg-blue-100
+      ul
+        - @group.errors.full_messages.each do |message|
+          li = message
+  .field
+    = f.label :name
+    = f.text_field :name
+  .actions
+    = f.submit '送信', class: ''
