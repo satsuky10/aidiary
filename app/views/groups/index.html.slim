@@ -2,4 +2,6 @@ h1 グループ一覧
 = link_to  "新規作成", new_group_path 
 /= link_to  "新規作成", new_group_path 
 - @groups.each do |group|
-  li= group.name
+  li
+		= link_to group.name, edit_group_path(group)
+		span>= link_to '削除', group, method: :delete

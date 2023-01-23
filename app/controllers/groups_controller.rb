@@ -1,9 +1,7 @@
 class GroupsController < ApplicationController
-    def index
-        @groups = Group.all
-    end
-
-    def show
+  before_action :set_group, only: %i(edit update destroy)  
+  def index
+        @groups = Group.active
     end
 
     def new
@@ -19,13 +17,30 @@ class GroupsController < ApplicationController
       end
     end
 
+    def edit
+    end
+
     def update
+      if @group.update(group_params)
+        redirect_to groups_path, notice: 'Group was successfully updated.'
+      else
+        render :edit, status: :unprocessable_entity
+      end
     end
 
     def destroy
+      if @group.soft_destroy
+        redirect_to groups_path, notice: 'deleted'
+      else
+        redirect_to groups_path, alert: 'can\'t delete'
+      end
     end
 
     private
+    def set_group
+      @group = Group.find(params[:id])
+    end
+    end
     def group_params
       params.require(:group).permit(:name)
     end
