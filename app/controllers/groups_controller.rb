@@ -1,6 +1,6 @@
 class GroupsController < ApplicationController
   before_action :set_group, only: %i(edit update destroy)  
-  def index
+    def index
         @groups = Group.active
     end
 
@@ -38,9 +38,9 @@ class GroupsController < ApplicationController
 
     private
     def set_group
-      @group = Group.find(params[:id])
+      @group = Group.find_by(uid: params[:uid])
     end
-    end
+
     def group_params
       params.require(:group).permit(:name)
     end
