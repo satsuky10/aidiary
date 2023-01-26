@@ -1,7 +1,11 @@
 class GroupsController < ApplicationController
-  before_action :set_group, only: %i(edit update destroy)  
-    def index
-        @groups = Group.active
+  before_action :set_group, only: %i(show edit update)
+  before_action :authenticate_user!
+    # def index
+    #     @groups = Group.active.where(id: current_user.group_id)
+    # end
+
+    def edit
     end
 
     def new
@@ -11,7 +15,8 @@ class GroupsController < ApplicationController
     def create
       @group =  Group.new(group_params)
       if @group.save
-        redirect_to groups_path, notice: 'Group was successfully created.'
+        current_user.update(group_id: @group.id)
+        redirect_to edit_group_path, notice: 'Group was successfully created.'
       else
         render :new, status: :unprocessable_entity
       end
@@ -22,23 +27,15 @@ class GroupsController < ApplicationController
 
     def update
       if @group.update(group_params)
-        redirect_to groups_path, notice: 'Group was successfully updated.'
+        redirect_to group_path, notice: 'Group was successfully updated.'
       else
         render :edit, status: :unprocessable_entity
       end
     end
 
-    def destroy
-      if @group.soft_destroy
-        redirect_to groups_path, notice: 'deleted'
-      else
-        redirect_to groups_path, alert: 'can\'t delete'
-      end
-    end
-
     private
     def set_group
-      @group = Group.find_by(uid: params[:uid])
+      @group = current_user.group
     end
 
     def group_params

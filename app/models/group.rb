@@ -1,4 +1,5 @@
 class Group < ApplicationRecord
+  has_many :users
   validates :name, presence: true
   include UidModule
   def soft_destroy
