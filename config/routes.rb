@@ -6,4 +6,5 @@ Rails.application.routes.draw do
   root "groups#index"
   get 'home' => 'home#index'
   resource :group, param: :uid, only: %i(show new create edit update)
+  resources :contents, param: :uid
 end

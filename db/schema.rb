@@ -10,7 +10,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_01_24_155154) do
+ActiveRecord::Schema[7.0].define(version: 2023_01_26_114706) do
+  create_table "contents", force: :cascade do |t|
+    t.string "uid"
+    t.string "title"
+    t.integer "user_id", null: false
+    t.text "input_words"
+    t.text "output_body"
+    t.datetime "deleted_at"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_contents_on_user_id"
+  end
+
   create_table "groups", force: :cascade do |t|
     t.string "uid"
     t.string "name"
@@ -47,4 +59,5 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_24_155154) do
     t.index ["unlock_token"], name: "index_users_on_unlock_token", unique: true
   end
 
+  add_foreign_key "contents", "users"
 end

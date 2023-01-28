@@ -1,0 +1,14 @@
+= form_with model: @content do |f|
+  - if @content.errors.any?
+    #error_explanation.p-4.bg-blue-100
+      ul
+        - @content.errors.full_messages.each do |message|
+          li = message
+  .field
+    = f.label :title
+    = f.text_field :title
+  .field
+    = f.label :input_words
+    = f.text_field :input_words 
+  .actions
+    = f.submit '送信', class: ''
