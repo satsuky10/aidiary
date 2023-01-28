@@ -172,6 +172,7 @@ GEM
       actionpack (>= 5.2)
       activesupport (>= 5.2)
       sprockets (>= 3.0.0)
+    sqlite3 (1.6.0-arm64-darwin)
     stimulus-rails (1.2.1)
       railties (>= 6.0.0)
     tailwindcss-rails (2.0.21-arm64-darwin)
@@ -212,6 +213,7 @@ DEPENDENCIES
   rails (~> 7.0.4)
   slim
   sprockets-rails
+  sqlite3 (~> 1.4)
   stimulus-rails
   tailwindcss-rails
   turbo-rails
