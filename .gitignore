@@ -38,3 +38,5 @@
 !/app/assets/builds/.keep
 app/.DS_Store
 .DS_Store
+.env
+.vscode/settings.json
