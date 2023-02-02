@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Aidiary</title>
+    <title>Sentence Generator in English</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
@@ -13,8 +13,8 @@
 
   <body>
     <main class="container mx-auto mt-28 px-5">
-    <% if current_user %>
-      <p>hello <%= current_user.username %></p>
+    <% if user_signed_in? %>
+      <p>hello <%= current_user.email %></p>
     <% end %>
       <p class="notice"><%= notice %></p>
       <p class="alert"><%= alert %></p>
