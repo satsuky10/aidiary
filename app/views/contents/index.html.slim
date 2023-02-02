@@ -1,6 +1,6 @@
 div{class='mx-auto md:w-2/3 w-full p-10'}
   = link_to '新規作成', new_content_path, class: 'px-2 py-1 bg-blue-600 text-white'
   - @contents.each do |content|
-    li= link_to content.title, content
+    li= link_to content.input_words, content
   - if user_signed_in?
     = link_to 'ログアウト', destroy_user_session_path, method: :delete

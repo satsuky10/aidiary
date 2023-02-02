@@ -46,7 +46,7 @@ class ContentsController < ApplicationController
     end
 
     def content_params
-        params.require(:content).permit(:title, :input_words)
+        params.require(:content).permit(:input_words)
     end
 
     
