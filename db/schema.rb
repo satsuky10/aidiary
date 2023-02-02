@@ -10,10 +10,9 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_02_02_033651) do
+ActiveRecord::Schema[7.0].define(version: 2023_02_02_173121) do
   create_table "contents", force: :cascade do |t|
     t.string "uid"
-    t.string "title"
     t.integer "user_id", null: false
     t.text "input_words"
     t.text "output_body"
