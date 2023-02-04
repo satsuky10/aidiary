@@ -1,2 +1,6 @@
-/ = link_to '戻る', contents_path, class: ''
-= render 'form'
+= link_to contents_path, class: 'flex' do
+  svg.block.w-6.h-6[xmlns="http://www.w3.org/2000/svg" fill="none" viewbox="0 0 24 24" stroke-width="1.5" stroke="currentColor"]
+    path[stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5"]
+  div 一覧
+.bg-white.pt-4.pb-16.px-4.mt-4.shadow.sm:rounded-lg.sm:px-10
+  = render 'form'

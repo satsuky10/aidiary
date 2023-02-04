@@ -1,11 +1,25 @@
-= link_to '戻る', contents_path
-= link_to '編集', edit_content_path
-= link_to '削除', @content, method: :delete, data: {confirm: '本当に削除しますか？'}
-h2
-  | 登録された単語は#{@content.input_words}
+.flex.items-center.mb-8
+  div
+    = link_to contents_path, class: 'flex' do
+      svg.block.w-6.h-6[xmlns="http://www.w3.org/2000/svg" fill="none" viewbox="0 0 24 24" stroke-width="1.5" stroke="currentColor"]
+        path[stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5"]
+      div 一覧
 - if @content.output_body.present?
-  p.bg-gray-300.px-4.py-3
+  p.bg-gray-200.px-4.py-3
     = @content.output_body
 - else 
-  p.bg-yellow-400.px-4.py-3 
-    | 生成失敗
+  p.bg-yellow-200.px-4.py-3 
+    | 生成エラー
+.flex.justify-between.items-center.mb-8.mt-5
+  p
+    | 登録された単語は #{@content.input_words}
+  div
+    = link_to edit_content_path, class: 'inline-flex items-center rounded border border-gray-300 bg-white px-2.5 py-1.5 text-xs font-medium text-gray-700 shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2' do
+      div 編集
+
+
+/ div.text-right.mt-3
+/   = link_to edit_content_path, class: 'flex inline-flex items-center rounded-md border border-transparent bg-indigo-600 px-3 py-2 text-sm font-medium leading-4 text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"' do
+/     div 編集
+/ h2.mt-3
+/   | 登録された単語は #{@content.input_words}
