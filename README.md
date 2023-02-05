@@ -1,24 +1,64 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+AI　英文ジェネレーター
+====
 
-Things you may want to cover:
+GPT-3を使った英文生成アプリケーション
 
-* Ruby version
+## App
 
-* System dependencies
+[English Sentence Generator](https://esg.herokuapp.com/)
 
-* Configuration
+英単語を入力するとAIが入力された英単語を含んだオリジナルの英文を生成することができ、英語学習に役立つアプリケーションです。
 
-* Database creation
+- AIが生成した英文一覧を見ることができます
+- サインインすると、生成画面から指定した英単語を含んだ英文を生成することができます
 
-* Database initialization
 
-* How to run the test suite
+## Environment
 
-* Services (job queues, cache servers, search engines, etc.)
+- Rails[7.0.4]
+- ruby[3.1.2]
+- GPT-3[text-davinci-003]
+- device
+- tailwindcss
+- PostgreSQL
 
-* Deployment instructions
+## Usage
 
-* ...
+リポジトリをクローン
+```
+$ git clone https://github.com/satsuky10/aidiary.git
+```
+
+ライブラリのインストール
+```
+$ bundle install
+```
+
+データベースのセットアップ
+```
+$ rails db:create
+$ rails db:migrate
+```
+
+APIキーの登録
+1. [OPEN AI](https://openai.com/api/) のアカウントを作成
+2. APIキーを[マイページ](https://platform.openai.com/account/api-keys)から発行
+3. '.env' ファイルをプロジェクト直下に作成し以下のように記述（このときファイルがコミット対象にならないよう、.gitignoreに追加する）
+
+.env
+```
+OPENAI_KEY='***************'
+```
+
+ローカルホストで起動
+railsサーバ起動（アプリケーション）
+```
+$ bin/rails server -p 3000
+```
+
+tailwindcssサーバ起動（CSS）
+```
+$ bin/rails tailwindcss:watch
+```
