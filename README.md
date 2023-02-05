@@ -9,6 +9,7 @@ GPT-3を使った英文生成アプリケーション
 
 [English Sentence Generator](https://esg.herokuapp.com/)
 
+![esg](https://user-images.githubusercontent.com/12973113/216808986-bef3a35b-8b65-4d3a-b229-538d73abff9e.png)
 英単語を入力するとAIが入力された英単語を含んだオリジナルの英文を生成することができ、英語学習に役立つアプリケーションです。
 
 - AIが生成した英文一覧を見ることができます
