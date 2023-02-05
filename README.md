@@ -44,7 +44,7 @@ $ rails db:migrate
 APIキーの登録
 1. [OPEN AI](https://openai.com/api/) のアカウントを作成
 2. APIキーを[マイページ](https://platform.openai.com/account/api-keys)から発行
-3. '.env' ファイルをプロジェクト直下に作成し以下のように記述（このときファイルがコミット対象にならないよう、.gitignoreに追加する）
+3. `.env` ファイルをプロジェクト直下に作成し以下のように記述（このときファイルがコミット対象にならないよう、`.gitignore` に追加する）
 
 .env
 ```
